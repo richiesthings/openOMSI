@@ -1871,6 +1871,8 @@
 "Plate {ident}": "번호판 {ident}"
 "MileZero integration": "MileZero 연동"
 "The MileZero radio over the navigator: what plays, a play button (paused until you press it), song requests; the stream quality follows your connection": "내비게이터 위의 MileZero 라디오: 재생 중인 곡, 재생 버튼(누르기 전까지 일시정지), 곡 신청; 스트림 품질은 연결 상태에 맞춰집니다"
+"MileZero volume": "MileZero 음량"
+"How loud the MileZero stream plays": "MileZero 스트림의 재생 음량"
 "Loading": "로딩 중"
 "Request": "신청"
 "Live radio": "라이브 라디오"

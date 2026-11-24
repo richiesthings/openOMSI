@@ -1,6 +1,6 @@
 //! The MileZero card over (or under) the navigator: a small bar with the cover, the song, the
 //! artist and the time played, which opens into the full card - the DJ, the stream quality,
-//! play/pause and a song request - while the mouse is over it. Light or dark like the map.
+//! play/pause, a song request and a volume slider - while the mouse is over it. Light or dark like the map.
 
 use super::*;
 
@@ -12,6 +12,8 @@ pub struct MzState {
     pub rect: Option<[f32; 4]>,
     pub play: Option<[f32; 4]>,
     pub request: Option<[f32; 4]>,
+    /// The volume slider's track, where a press or a drag sets the volume (left end 0, right 1).
+    pub volume: Option<[f32; 4]>,
     /// The room it takes beside the navigator, with its gap, for the notices to keep clear.
     pub extent: f32,
     /// The cover on the GPU (its address and texture): one at a time, the one before is freed.
@@ -28,6 +30,8 @@ pub struct MzView {
     pub playing: bool,
     pub loading: bool,
     pub quality: &'static str,
+    /// How loud the stream plays (0..1).
+    pub volume: f32,
     /// The request being typed.
     pub typing: Option<String>,
     pub status: Option<String>,
@@ -92,6 +96,7 @@ impl Ui {
         self.mz.rect = None;
         self.mz.play = None;
         self.mz.request = None;
+        self.mz.volume = None;
         self.mz.extent = 0.0;
         let Some(v) = f.milezero else {
             self.mz.k = 0.0;
@@ -110,7 +115,7 @@ impl Ui {
         let gap = 8.0 * s;
         let embedded = false;
         let small_w = f.nav_rect.map_or(280.0 * s, |a| a[2] - a[0]).max(250.0 * s);
-        let (small_h, big_h) = (52.0 * s, 160.0 * s + if v.typing.is_some() || v.status.is_some() { 26.0 * s } else { 0.0 });
+        let (small_h, big_h) = (52.0 * s, 186.0 * s + if v.typing.is_some() || v.status.is_some() { 26.0 * s } else { 0.0 });
         let w = small_w.round();
         let h = (small_h + (big_h - small_h) * e).round();
         let (x0, y0) = match f.nav_rect {
@@ -229,6 +234,21 @@ impl Ui {
             }
             self.mz.play = Some(play);
             self.mz.request = Some(req);
+            // the volume: an icon, the track with its knob, and the percentage
+            let vy = y0 + 136.0 * s;
+            let ip = 16.0 * s;
+            self.mz_icon(r, scene, "volume_up", ip, [grey[0], grey[1], grey[2], 255], x0 + pad, vy - ip * 0.5);
+            let pct = format!("{:.0} %", v.volume * 100.0);
+            let pct_w = self.text.width_raw("100 %", 11.0 * s);
+            let (vx0, vx1) = (x0 + pad + ip + 10.0 * s, xr - pct_w - 10.0 * s);
+            let th = 4.0 * s;
+            self.text.rounded(r, scene, [vx0, vy - th * 0.5, vx1, vy + th * 0.5], th * 0.5, track);
+            let kx = vx0 + (vx1 - vx0) * v.volume.clamp(0.0, 1.0);
+            self.text.rounded(r, scene, [vx0, vy - th * 0.5, kx.max(vx0 + th), vy + th * 0.5], th * 0.5, accent);
+            let kr = 6.0 * s;
+            self.text.rounded(r, scene, [kx - kr, vy - kr, kx + kr, vy + kr], kr, accent);
+            self.mz_label(r, scene, xr + 200.0, &pct, 11.0 * s, grey, 1.0, xr - self.text.width_raw(&pct, 11.0 * s), vy - 7.0 * s);
+            self.mz.volume = Some([vx0, vy - 10.0 * s, vx1, vy + 10.0 * s]);
             // the request being typed, or what became of the last one
             let line = match (&v.typing, &v.status) {
                 (Some(t), _) => Some((format!("{t}|"), text_c, "close")),
@@ -236,7 +256,7 @@ impl Ui {
                 _ => None,
             };
             if let Some((text, c, _)) = line {
-                let ly = y0 + 124.0 * s;
+                let ly = y0 + 152.0 * s;
                 let chip = [x0 + pad, ly - 3.0 * s, xr, ly + 19.0 * s];
                 self.text.rounded(r, scene, chip, 8.0 * s, key_bg);
                 let shown = if v.typing.is_some() && text.len() <= 1 { omsi_ui::tr("Type a song and press Enter (Esc cancels)").into_owned() } else { text };

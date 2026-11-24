@@ -2176,6 +2176,8 @@
 "Plate {ident}": "Registrační značka {ident}"
 "MileZero integration": "Integrace MileZero"
 "The MileZero radio over the navigator: what plays, a play button (paused until you press it), song requests; the stream quality follows your connection": "Rádio MileZero nad navigací: co hraje, tlačítko přehrávání (pozastaveno, dokud ho nestisknete), žádosti o písně; kvalita proudu se řídí vaším připojením"
+"MileZero volume": "Hlasitost MileZero"
+"How loud the MileZero stream plays": "Jak hlasitě hraje stream MileZero"
 "Loading": "Načítání"
 "Request": "Požádat"
 "Live radio": "Živé rádio"

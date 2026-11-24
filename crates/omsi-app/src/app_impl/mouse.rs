@@ -167,6 +167,12 @@ impl App {
     /// The cursor's new place in the window, as the window reported it or as the mouse
     /// steering's point stands in it.
     pub(super) fn cursor_moved_to(&mut self, x: f32, y: f32) {
+        // the MileZero card's volume slider being dragged follows the cursor
+        if self.sound.milezero.dragging {
+            self.input.cursor = (x, y);
+            self.milezero_volume_at(x);
+            return;
+        }
         // a plugin's slider or panel being dragged follows the cursor
         if self.integrations.plugin_drag_move(x, y) || self.game_panel_drag(x) {
             self.input.cursor = (x, y);
@@ -530,16 +536,35 @@ impl App {
         if self.menus.game_menu.is_none() && self.editor_mouse(pressed) {
             return;
         }
+        // the MileZero card's volume slider let go: the volume is kept for the next game
+        if !pressed && self.sound.milezero.dragging {
+            self.sound.milezero.dragging = false;
+            crate::game_lists::remember_setting(
+                "milezero_volume",
+                &self.settings.milezero_volume.to_string(),
+            );
+            return;
+        }
         // the MileZero card: its buttons, and a press on it goes no further
         if pressed && self.settings.milezero {
             let (x, y) = self.input.cursor;
             let at = |r: Option<[f32; 4]>| {
                 r.is_some_and(|r| x >= r[0] && x < r[2] && y >= r[1] && y < r[3])
             };
-            let (play, request, card) = self.ui.as_ref().map_or((false, false, false), |u| {
-                (at(u.mz.play), at(u.mz.request), at(u.mz.rect))
-            });
-            if play {
+            let (play, request, volume, card) =
+                self.ui.as_ref().map_or((false, false, false, false), |u| {
+                    (
+                        at(u.mz.play),
+                        at(u.mz.request),
+                        at(u.mz.volume),
+                        at(u.mz.rect),
+                    )
+                });
+            if volume {
+                self.sound.milezero.dragging = true;
+                self.milezero_volume_at(x);
+                return;
+            } else if play {
                 self.sound.milezero.want_play = !self.sound.milezero.want_play;
                 return;
             } else if request {
@@ -1200,6 +1225,16 @@ mod reach_tests {
 
 impl App {
     /// A key pressed while a MileZero song request is being typed: true when it was taken.
+    /// The MileZero volume set from the cursor's place `x` along the card's slider, in
+    /// steps of a hundredth (kept when the slider is let go).
+    fn milezero_volume_at(&mut self, x: f32) {
+        let Some(t) = self.ui.as_ref().and_then(|u| u.mz.volume) else {
+            return;
+        };
+        let k = ((x - t[0]) / (t[2] - t[0]).max(1.0)).clamp(0.0, 1.0);
+        self.settings.milezero_volume = (k * 100.0).round() / 100.0;
+    }
+
     pub(crate) fn milezero_typing(&mut self, event: &winit::event::KeyEvent) -> bool {
         use winit::keyboard::{Key, NamedKey};
         let mz = &mut self.sound.milezero;

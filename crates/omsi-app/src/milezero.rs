@@ -65,6 +65,10 @@ pub(crate) struct Milezero {
     up_after: f32,
     /// The request being typed, while the box is open.
     pub typing: Option<String>,
+    /// The card's volume slider is held by the mouse.
+    pub dragging: bool,
+    /// The gain the stream plays at (the setting `milezero_volume`).
+    volume: f32,
     last: Instant,
 }
 
@@ -79,6 +83,8 @@ impl Default for Milezero {
             level: 0,
             up_after: UP_AFTER,
             typing: None,
+            dragging: false,
+            volume: 0.8,
             last: Instant::now(),
         }
     }
@@ -242,8 +248,10 @@ impl Milezero {
     }
 
     /// Every frame: starts and stops the poller and the stream with the setting and the
-    /// play button, and moves between the streams as the connection allows.
-    pub fn update(&mut self, audio: &AudioEngine, enabled: bool) {
+    /// play button, plays it at `volume` (0..1), and moves between the streams as the
+    /// connection allows.
+    pub fn update(&mut self, audio: &AudioEngine, enabled: bool, volume: f32) {
+        self.volume = volume.clamp(0.0, 1.0);
         let dt = self.last.elapsed().as_secs_f32().min(0.5);
         self.last = Instant::now();
         if enabled && !self.polling {
@@ -252,6 +260,7 @@ impl Milezero {
             self.stop_poller();
             self.want_play = false;
             self.typing = None;
+            self.dragging = false;
         }
         if !enabled || !self.want_play {
             if let Some(p) = self.playing.take() {
@@ -269,7 +278,7 @@ impl Milezero {
         audio.set_params(
             p.voice,
             VoiceParams {
-                gain: 1.0,
+                gain: self.volume,
                 ..Default::default()
             },
         );
@@ -326,7 +335,7 @@ impl Milezero {
         let voice = audio.play_stream(
             buf.clone(),
             VoiceParams {
-                gain: 1.0,
+                gain: self.volume,
                 ..Default::default()
             },
         );

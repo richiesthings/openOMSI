@@ -1871,6 +1871,8 @@
 "Plate {ident}": "Plat nombor {ident}"
 "MileZero integration": "Integrasi MileZero"
 "The MileZero radio over the navigator: what plays, a play button (paused until you press it), song requests; the stream quality follows your connection": "Radio MileZero di atas navigator: apa yang dimainkan, butang main (dijeda sehingga anda menekannya), permintaan lagu; kualiti strim mengikut sambungan anda"
+"MileZero volume": "Kelantangan MileZero"
+"How loud the MileZero stream plays": "Sekuat mana strim MileZero dimainkan"
 "Loading": "Memuatkan"
 "Request": "Minta"
 "Live radio": "Radio langsung"

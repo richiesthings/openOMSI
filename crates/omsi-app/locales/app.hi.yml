@@ -2163,6 +2163,8 @@
 "Plate {ident}": "नंबर प्लेट {ident}"
 "MileZero integration": "MileZero इंटीग्रेशन"
 "The MileZero radio over the navigator: what plays, a play button (paused until you press it), song requests; the stream quality follows your connection": "नेविगेटर के ऊपर MileZero रेडियो: क्या बज रहा है, प्ले बटन (दबाने तक रुका रहता है), गाने के अनुरोध; स्ट्रीम की गुणवत्ता आपके कनेक्शन के अनुसार बदलती है"
+"MileZero volume": "MileZero वॉल्यूम"
+"How loud the MileZero stream plays": "MileZero स्ट्रीम कितनी तेज़ बजती है"
 "Loading": "लोड हो रहा है"
 "Request": "अनुरोध"
 "Live radio": "लाइव रेडियो"

@@ -2164,6 +2164,8 @@
 "Plate {ident}": "ナンバープレート {ident}"
 "MileZero integration": "MileZero連携"
 "The MileZero radio over the navigator: what plays, a play button (paused until you press it), song requests; the stream quality follows your connection": "ナビの上に表示されるMileZeroラジオ：再生中の曲、再生ボタン（押すまで一時停止）、リクエスト。ストリーム品質は回線に合わせて変わります"
+"MileZero volume": "MileZero の音量"
+"How loud the MileZero stream plays": "MileZero のストリームの音量"
 "Loading": "読み込み中"
 "Request": "リクエスト"
 "Live radio": "ライブラジオ"

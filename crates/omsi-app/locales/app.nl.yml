@@ -2533,6 +2533,8 @@
 "Plate {ident}": "Kentekenplaat {ident}"
 "MileZero integration": "MileZero-integratie"
 "The MileZero radio over the navigator: what plays, a play button (paused until you press it), song requests; the stream quality follows your connection": "De MileZero-radio boven de navigator: wat er speelt, een afspeelknop (gepauzeerd tot je erop drukt), verzoeknummers; de streamkwaliteit volgt je verbinding"
+"MileZero volume": "MileZero-volume"
+"How loud the MileZero stream plays": "Hoe hard de MileZero-stream speelt"
 "Loading": "Laden"
 "Request": "Aanvragen"
 "Live radio": "Live radio"

@@ -2164,6 +2164,8 @@
 "Plate {ident}": "Rendszámtábla {ident}"
 "MileZero integration": "MileZero-integráció"
 "The MileZero radio over the navigator: what plays, a play button (paused until you press it), song requests; the stream quality follows your connection": "A MileZero rádió a navigátor felett: mi szól, lejátszás gomb (megnyomásig szünetel), dalkérések; a stream minősége a kapcsolatodhoz igazodik"
+"MileZero volume": "MileZero hangerő"
+"How loud the MileZero stream plays": "Milyen hangosan szól a MileZero adás"
 "Loading": "Betöltés"
 "Request": "Kérés"
 "Live radio": "Élő rádió"

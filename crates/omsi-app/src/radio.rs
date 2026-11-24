@@ -6,7 +6,7 @@ pub(crate) use omsi_soundscape::radio::*;
 pub(crate) fn option_rows(
     app: &crate::App,
     pct: &dyn Fn(f32) -> String,
-) -> [Option<(String, String)>; 4] {
+) -> [Option<(String, String)>; 5] {
     use crate::game_lists::{slider_row, switch_row};
     [
         switch_row(
@@ -15,6 +15,14 @@ pub(crate) fn option_rows(
             "MileZero integration",
             "The MileZero radio over the navigator: what plays, a play button (paused until you press it), song requests; the stream quality follows your connection",
         ),
+        slider_row(
+            app,
+            "milezero_volume",
+            "MileZero volume",
+            "How loud the MileZero stream plays",
+            pct,
+        )
+        .filter(|_| app.settings.milezero),
         slider_row(
             app,
             "radio_speaker",

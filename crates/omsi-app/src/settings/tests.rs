@@ -1129,3 +1129,21 @@ fn the_note_kinds_go_round_the_file() {
         (false, true, false, true)
     );
 }
+
+/// The MileZero volume starts at 80 % and is read within 0..1 (#milezero volume slider).
+#[test]
+fn the_milezero_volume_is_read_within_its_range() {
+    assert_eq!(super::Settings::default().milezero_volume, 0.8);
+    assert_eq!(
+        super::Settings::from_text("milezero_volume=0.25\n").milezero_volume,
+        0.25
+    );
+    assert_eq!(
+        super::Settings::from_text("milezero_volume=3\n").milezero_volume,
+        1.0
+    );
+    assert_eq!(
+        super::Settings::from_text("milezero_volume=x\n").milezero_volume,
+        0.8
+    );
+}

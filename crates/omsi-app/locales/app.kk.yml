@@ -2162,6 +2162,8 @@
 "Plate {ident}": "Нөмір белгісі {ident}"
 "MileZero integration": "MileZero интеграциясы"
 "The MileZero radio over the navigator: what plays, a play button (paused until you press it), song requests; the stream quality follows your connection": "Навигатор үстіндегі MileZero радиосы: не ойнап тұр, ойнату түймесі (басқанша кідіртілген), ән сұрау; ағын сапасы байланысыңызға бейімделеді"
+"MileZero volume": "MileZero дыбыс деңгейі"
+"How loud the MileZero stream plays": "MileZero ағыны қаншалықты қатты ойнайды"
 "Loading": "Жүктелуде"
 "Request": "Сұрау"
 "Live radio": "Тікелей радио"

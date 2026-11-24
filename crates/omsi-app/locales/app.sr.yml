@@ -3269,6 +3269,8 @@
 "Plate {ident}": "Broj pločica {ident}"
 "MileZero integration": "Integracija MileZero"
 "The MileZero radio over the navigator: what plays, a play button (paused until you press it), song requests; the stream quality follows your connection": "Radio MileZero iznad navigatora: šta svira, dugme za reprodukciju (pauzirano dok ga ne pritisnete), zahtevi za pesme; kvalitet strima prati vašu vezu"
+"MileZero volume": "Jačina zvuka MileZero"
+"How loud the MileZero stream plays": "Koliko glasno svira MileZero strim"
 "Loading": "Učitavanje"
 "Request": "Zatraži"
 "Live radio": "Radio uživo"

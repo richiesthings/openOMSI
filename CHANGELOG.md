@@ -8,6 +8,12 @@ promoted to stable releases (see [docs/VERSIONING.md](docs/VERSIONING.md)); the 
 
 ### New and improved
 
+- **MileZero in the launcher, with a volume slider**: the launcher's Sound settings now have the
+  *MileZero integration* switch at the top of the Radio stations column, so the MileZero card can
+  be turned on before you drive, and a *MileZero volume* slider under it (80 % at first). The same
+  slider is in the game's Sound options, and the MileZero card has its own: hover over the card
+  and drag it, or click anywhere along it; the volume is kept for the next game. Before, the
+  stream always played at full loudness.
 - **mX Graphics twice as fast on the GPU**: in Enhanced the main pass draws most surfaces with a
   lean pipeline that leaves out the shading they do not use (films, water, LEDs, bump maps, wet or
   snowy roads in dry weather), compiled in the background, and the ground's albedo pass works

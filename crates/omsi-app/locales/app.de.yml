@@ -3270,6 +3270,8 @@
 "Plate {ident}": "Kennzeichen {ident}"
 "MileZero integration": "MileZero-Integration"
 "The MileZero radio over the navigator: what plays, a play button (paused until you press it), song requests; the stream quality follows your connection": "Das MileZero-Radio über dem Navigator: was läuft, eine Wiedergabetaste (pausiert, bis Sie sie drücken), Musikwünsche; die Streamqualität folgt Ihrer Verbindung"
+"MileZero volume": "MileZero-Lautstärke"
+"How loud the MileZero stream plays": "Wie laut der MileZero-Stream spielt"
 "Loading": "Lädt"
 "Request": "Wunsch"
 "Live radio": "Live-Radio"

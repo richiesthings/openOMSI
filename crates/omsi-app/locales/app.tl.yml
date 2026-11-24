@@ -1870,6 +1870,8 @@
 "Plate {ident}": "Plaka {ident}"
 "MileZero integration": "Integrasyon ng MileZero"
 "The MileZero radio over the navigator: what plays, a play button (paused until you press it), song requests; the stream quality follows your connection": "Ang MileZero radio sa ibabaw ng navigator: kung ano ang tumutugtog, play button (naka-pause hanggang pindutin mo), mga request ng kanta; sumusunod ang kalidad ng stream sa koneksyon mo"
+"MileZero volume": "Lakas ng tunog ng MileZero"
+"How loud the MileZero stream plays": "Gaano kalakas tumutugtog ang stream ng MileZero"
 "Loading": "Naglo-load"
 "Request": "I-request"
 "Live radio": "Live na radyo"

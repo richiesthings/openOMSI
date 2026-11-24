@@ -2179,6 +2179,8 @@
 "Plate {ident}": "Targa {ident}"
 "MileZero integration": "Integrazione MileZero"
 "The MileZero radio over the navigator: what plays, a play button (paused until you press it), song requests; the stream quality follows your connection": "La radio MileZero sopra il navigatore: cosa suona, un pulsante di riproduzione (in pausa finché non lo premi), richieste di brani; la qualità dello stream segue la tua connessione"
+"MileZero volume": "Volume di MileZero"
+"How loud the MileZero stream plays": "Quanto forte suona lo streaming di MileZero"
 "Loading": "Caricamento"
 "Request": "Richiedi"
 "Live radio": "Radio in diretta"

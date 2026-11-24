@@ -6545,6 +6545,10 @@ _version: 2
   en: "MileZero integration"
 "The MileZero radio over the navigator: what plays, a play button (paused until you press it), song requests; the stream quality follows your connection":
   en: "The MileZero radio over the navigator: what plays, a play button (paused until you press it), song requests; the stream quality follows your connection"
+"MileZero volume":
+  en: "MileZero volume"
+"How loud the MileZero stream plays":
+  en: "How loud the MileZero stream plays"
 "Loading":
   en: "Loading"
 "Request":

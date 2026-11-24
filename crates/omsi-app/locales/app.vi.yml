@@ -1871,6 +1871,8 @@
 "Plate {ident}": "Biển số xe {ident}"
 "MileZero integration": "Tích hợp MileZero"
 "The MileZero radio over the navigator: what plays, a play button (paused until you press it), song requests; the stream quality follows your connection": "Radio MileZero phía trên trình điều hướng: bài đang phát, nút phát (tạm dừng cho đến khi bạn bấm), yêu cầu bài hát; chất lượng luồng theo kết nối của bạn"
+"MileZero volume": "Âm lượng MileZero"
+"How loud the MileZero stream plays": "Luồng MileZero phát to đến mức nào"
 "Loading": "Đang tải"
 "Request": "Yêu cầu"
 "Live radio": "Đài phát trực tiếp"

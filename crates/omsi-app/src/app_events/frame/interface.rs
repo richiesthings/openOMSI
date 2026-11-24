@@ -540,9 +540,10 @@ impl App {
                     playing: m.is_playing(),
                     loading: m.loading(),
                     quality: m.quality(),
+                    volume: self.settings.milezero_volume,
                     typing: m.typing.clone(),
                     status: m.request_status(),
-                    hover: over || m.typing.is_some(),
+                    hover: over || m.typing.is_some() || m.dragging,
                 }
             });
             let mz_gap = if mz_view.is_some() { ui.mz.extent } else { 0.0 };

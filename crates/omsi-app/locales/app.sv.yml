@@ -2767,6 +2767,8 @@
 "Plate {ident}": "Registreringsskylt {ident}"
 "MileZero integration": "MileZero-integration"
 "The MileZero radio over the navigator: what plays, a play button (paused until you press it), song requests; the stream quality follows your connection": "MileZero-radion ovanför navigatorn: vad som spelas, en uppspelningsknapp (pausad tills du trycker), önskemål om låtar; strömmens kvalitet följer din anslutning"
+"MileZero volume": "MileZero-volym"
+"How loud the MileZero stream plays": "Hur högt MileZero-strömmen spelar"
 "Loading": "Läser in"
 "Request": "Önska"
 "Live radio": "Liveradio"

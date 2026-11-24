@@ -3446,6 +3446,12 @@ fn voice_defaults(v: &mut Value) {
     v["voice_all_off"] = json!(false);
 }
 
+// The MileZero radio card: off until switched on, its stream at 80 % when it plays.
+fn milezero_defaults(v: &mut Value) {
+    v["milezero"] = json!(false);
+    v["milezero_volume"] = json!(0.8);
+}
+
 // Keep independent opt-in defaults shared by desktop and phone settings.
 fn passenger_defaults(v: &mut Value) {
     v["passenger_connections"] = json!(false);
@@ -3545,6 +3551,7 @@ pub fn settings_from_text_on(text: Option<&str>, phone: bool) -> Value {
     v["cross_platform_launcher"] = json!(false);
     v["discord_app_id"] = json!("");
     voice_defaults(&mut v);
+    milezero_defaults(&mut v);
     v["remote_cockpit"] = json!(false);
     v["remote_cockpit_port"] = json!(8642);
     // the launcher gives the graphics card up while a game runs (off: it stays drawn)
@@ -3750,6 +3757,14 @@ pub fn settings_from_text_on(text: Option<&str>, phone: bool) -> Value {
             "ui_opacity" | "volume" | "vol_ai" | "vol_scenery" | "vol_ambient" | "min_obj_size"
             | "radio_speaker" | "radio_hiss" | "radio_dropouts" => {
                 v[&k] = json!(val.parse::<f64>().unwrap_or(0.0))
+            }
+            "milezero_volume" => {
+                v[&k] = json!(val
+                    .parse::<f64>()
+                    .ok()
+                    .filter(|x| x.is_finite())
+                    .map(|x| x.clamp(0.0, 1.0))
+                    .unwrap_or(0.8))
             }
             "pax_density" => {
                 v[&k] = json!(
@@ -4381,6 +4396,7 @@ pub fn settings_from_text_on(text: Option<&str>, phone: bool) -> Value {
             | "nav_surface"
             | "nav_3d"
             | "nav_widget"
+            | "milezero"
             | "get_up"
             | "time_sync"
             | "metar_sync"
@@ -5202,6 +5218,11 @@ pub fn settings_to_text(v: &Value, old: Option<&str>) -> String {
         f("vol_ambient", 0.8).clamp(0.0, 1.0)
     ));
     text.push_str(&format!(
+        "milezero={}\nmilezero_volume={}\n",
+        b("milezero", false),
+        f("milezero_volume", 0.8).clamp(0.0, 1.0)
+    ));
+    text.push_str(&format!(
         "radio_speaker={}\nradio_hiss={}\nradio_dropouts={}\n",
         f("radio_speaker", 0.0).clamp(0.0, 1.0),
         f("radio_hiss", 0.0).clamp(0.0, 1.0),
@@ -5676,3 +5697,7 @@ mod passenger_connections_tests;
 #[cfg(test)]
 #[path = "passenger_settings_tests.rs"]
 mod passenger_settings_tests;
+
+#[cfg(test)]
+#[path = "milezero_settings_tests.rs"]
+mod milezero_settings_tests;

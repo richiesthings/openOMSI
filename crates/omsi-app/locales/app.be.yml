@@ -2163,6 +2163,8 @@
 "Plate {ident}": "Нумарны знак {ident}"
 "MileZero integration": "Інтэграцыя MileZero"
 "The MileZero radio over the navigator: what plays, a play button (paused until you press it), song requests; the stream quality follows your connection": "Радыё MileZero над навігатарам: што грае, кнопка прайгравання (паўза, пакуль не націснеце), заказ песень; якасць патоку падладжваецца пад злучэнне"
+"MileZero volume": "Гучнасць MileZero"
+"How loud the MileZero stream plays": "Наколькі гучна гучыць паток MileZero"
 "Loading": "Загрузка"
 "Request": "Заказаць"
 "Live radio": "Жывое радыё"

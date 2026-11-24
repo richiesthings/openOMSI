@@ -2502,6 +2502,8 @@
 "Plate {ident}": "车牌 {ident}"
 "MileZero integration": "MileZero 集成"
 "The MileZero radio over the navigator: what plays, a play button (paused until you press it), song requests; the stream quality follows your connection": "导航上方的 MileZero 电台：正在播放的内容、播放按钮（按下前保持暂停）、点歌；音质随网络连接调整"
+"MileZero volume": "MileZero 音量"
+"How loud the MileZero stream plays": "MileZero 音频流的播放音量"
 "Loading": "加载中"
 "Request": "点歌"
 "Live radio": "直播电台"

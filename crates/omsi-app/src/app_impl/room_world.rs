@@ -218,7 +218,7 @@ impl App {
         self.sound.voices_waiting.clear();
         if let Some(audio) = self.sound.audio.as_ref() {
             self.sound.radio.stop(audio);
-            self.sound.milezero.update(audio, false);
+            self.sound.milezero.update(audio, false, 0.0);
         }
         self.integrations.plugin_voices.clear();
         self.sound.audio = None;

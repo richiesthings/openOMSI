@@ -47,6 +47,7 @@ pub(super) fn option_now(app: &App, verb: &str, arg: &str) -> Option<f32> {
         "voice_mic_gain" => s.voice_mic_gain,
         "vol_scenery" => s.vol_scenery,
         "vol_ambient" => s.vol_ambient,
+        "milezero_volume" => s.milezero_volume,
         "radio_speaker" | "radio_hiss" | "radio_dropouts" => {
             *crate::radio::fx_setting(&mut s.radio_fx.clone(), verb).1
         }
@@ -256,6 +257,10 @@ pub(super) fn option_set(
         "vol_ambient" => {
             app.settings.vol_ambient = (v * 100.0).round() / 100.0;
             Some(("vol_ambient", app.settings.vol_ambient.to_string()))
+        }
+        "milezero_volume" => {
+            app.settings.milezero_volume = ((v * 100.0).round() / 100.0).clamp(0.0, 1.0);
+            Some(("milezero_volume", app.settings.milezero_volume.to_string()))
         }
         "radio_speaker" | "radio_hiss" | "radio_dropouts" => Some(crate::radio::set_fx_setting(
             &mut app.settings.radio_fx,

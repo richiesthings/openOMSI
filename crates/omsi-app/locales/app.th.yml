@@ -1871,6 +1871,8 @@
 "Plate {ident}": "ป้ายทะเบียน {ident}"
 "MileZero integration": "การเชื่อมต่อ MileZero"
 "The MileZero radio over the navigator: what plays, a play button (paused until you press it), song requests; the stream quality follows your connection": "วิทยุ MileZero เหนือเนวิเกเตอร์: เพลงที่กำลังเล่น ปุ่มเล่น (หยุดไว้จนกว่าจะกด) การขอเพลง คุณภาพสตรีมปรับตามการเชื่อมต่อของคุณ"
+"MileZero volume": "ระดับเสียง MileZero"
+"How loud the MileZero stream plays": "ความดังของสตรีม MileZero"
 "Loading": "กำลังโหลด"
 "Request": "ขอเพลง"
 "Live radio": "วิทยุสด"

@@ -3269,6 +3269,8 @@
 "Plate {ident}": "სანომრე ნიშანი {ident}"
 "MileZero integration": "MileZero-ის ინტეგრაცია"
 "The MileZero radio over the navigator: what plays, a play button (paused until you press it), song requests; the stream quality follows your connection": "MileZero-ს რადიო ნავიგატორის ზემოთ: რა უკრავს, დაკვრის ღილაკი (დაპაუზებულია, სანამ არ დააჭერთ), სიმღერების მოთხოვნა; ნაკადის ხარისხი თქვენს კავშირს მისდევს"
+"MileZero volume": "MileZero-ის ხმა"
+"How loud the MileZero stream plays": "რამდენად ხმამაღლა უკრავს MileZero-ს ნაკადი"
 "Loading": "იტვირთება"
 "Request": "მოთხოვნა"
 "Live radio": "პირდაპირი რადიო"

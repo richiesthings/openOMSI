@@ -365,6 +365,9 @@ const sound = {
     {
       title: 'Radio stations',
       rows: [
+        // MileZero: the station's own card over the navigator, with its own volume
+        { type: 'toggle', key: 'milezero', label: 'MileZero integration', help: 'The MileZero radio over the navigator: what plays, a play button (paused until you press it), song requests; the stream quality follows your connection' },
+        vol('milezero_volume', 'MileZero volume', 0.8, (s) => !!s.milezero),
         { type: 'note', text: "A radio's station button n plays the n-th station, a cassette player the first; Shift+R steps through them. An address is an MP3, AAC or Ogg stream or an .m3u/.pls playlist." },
         { type: 'custom', id: 'radio' },
       ],
